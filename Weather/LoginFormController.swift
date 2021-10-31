@@ -78,7 +78,7 @@ class LoginFormController: UIViewController {
                if login == "admin" && password == "123456" {
                    print("успешная авторизация")
                } else {
-                   print("неуспешная авторизация")
+                   print("ошибка")
                }
     }
 }
