@@ -42,7 +42,7 @@ class MyCitiesController: UITableViewController {
 
         return cell
     }
-   
+   //  не получается реализовать метод :(
     @IBAction func addCity(segue: UIStoryboardSegue) {
         if segue.identifier == "addCity" {
             guard let allCitiesController = segue.source as? AllCitiesController else { return }
