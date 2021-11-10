@@ -19,6 +19,7 @@
 		2E78193F2735CCF70021BA1C /* AllCitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E78193E2735CCF70021BA1C /* AllCitiesCell.swift */; };
 		2EA4A8582735D86E00BC4F21 /* MyCitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA4A8572735D86E00BC4F21 /* MyCitiesCell.swift */; };
 		2EA4A85B2735D88700BC4F21 /* MyCitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA4A85A2735D88700BC4F21 /* MyCitiesController.swift */; };
+		2EDECB81273C2FD400E003B3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDECB80273C2FD400E003B3 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		2E78193E2735CCF70021BA1C /* AllCitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesCell.swift; sourceTree = "<group>"; };
 		2EA4A8572735D86E00BC4F21 /* MyCitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesCell.swift; sourceTree = "<group>"; };
 		2EA4A85A2735D88700BC4F21 /* MyCitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesController.swift; sourceTree = "<group>"; };
+		2EDECB80273C2FD400E003B3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				2E4EF8C42729E5080085E459 /* LoginFormController.swift */,
+				2EDECB80273C2FD400E003B3 /* GradientView.swift */,
 				2E4EF8B42729E49A0085E459 /* Main.storyboard */,
 				2E5C30EF2739B300000EBF4B /* Weather */,
 				2EA4A8562735D84A00BC4F21 /* MyCities */,
@@ -181,6 +184,7 @@
 			files = (
 				2EA4A8582735D86E00BC4F21 /* MyCitiesCell.swift in Sources */,
 				2EA4A85B2735D88700BC4F21 /* MyCitiesController.swift in Sources */,
+				2EDECB81273C2FD400E003B3 /* GradientView.swift in Sources */,
 				2E5C30F42739B34D000EBF4B /* WeatherCell.swift in Sources */,
 				2E4EF8C52729E5080085E459 /* LoginFormController.swift in Sources */,
 				2E4EF8AF2729E49A0085E459 /* AppDelegate.swift in Sources */,
