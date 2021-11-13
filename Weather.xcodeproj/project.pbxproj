@@ -14,8 +14,14 @@
 		2E4EF8BB2729E49B0085E459 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4EF8B92729E49B0085E459 /* LaunchScreen.storyboard */; };
 		2E4EF8C52729E5080085E459 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4EF8C42729E5080085E459 /* LoginFormController.swift */; };
 		2EDCF874274028DF009E1F04 /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF873274028DF009E1F04 /* FriendsController.swift */; };
-		2EDCF877274028F8009E1F04 /* GroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF876274028F8009E1F04 /* GroupsController.swift */; };
+		2EDCF877274028F8009E1F04 /* MyGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF876274028F8009E1F04 /* MyGroupsController.swift */; };
 		2EDCF87B27403BBA009E1F04 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF87A27403BBA009E1F04 /* FriendCell.swift */; };
+		2EDCF87F27404BE0009E1F04 /* AllGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF87E27404BE0009E1F04 /* AllGroupsController.swift */; };
+		2EDCF88227404CB4009E1F04 /* MyGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF88127404CB4009E1F04 /* MyGroupsCell.swift */; };
+		2EDCF88527404CCC009E1F04 /* AllGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF88427404CCC009E1F04 /* AllGroupsCell.swift */; };
+		2EDCF88927404D0D009E1F04 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF88827404D0D009E1F04 /* User.swift */; };
+		2EDCF88C27404D36009E1F04 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF88B27404D36009E1F04 /* Group.swift */; };
+		2EDCF88F27404DEC009E1F04 /* MyFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF88E27404DEC009E1F04 /* MyFriendController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +34,14 @@
 		2E4EF8BC2729E49B0085E459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E4EF8C42729E5080085E459 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		2EDCF873274028DF009E1F04 /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
-		2EDCF876274028F8009E1F04 /* GroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsController.swift; sourceTree = "<group>"; };
+		2EDCF876274028F8009E1F04 /* MyGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsController.swift; sourceTree = "<group>"; };
 		2EDCF87A27403BBA009E1F04 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		2EDCF87E27404BE0009E1F04 /* AllGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsController.swift; sourceTree = "<group>"; };
+		2EDCF88127404CB4009E1F04 /* MyGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsCell.swift; sourceTree = "<group>"; };
+		2EDCF88427404CCC009E1F04 /* AllGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsCell.swift; sourceTree = "<group>"; };
+		2EDCF88827404D0D009E1F04 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2EDCF88B27404D36009E1F04 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		2EDCF88E27404DEC009E1F04 /* MyFriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,7 @@
 			children = (
 				2E4EF8B42729E49A0085E459 /* Main.storyboard */,
 				2E4EF8C42729E5080085E459 /* LoginFormController.swift */,
+				2EDCF88727404CE0009E1F04 /* Model */,
 				2EDCF872274028B3009E1F04 /* Friends */,
 				2EDCF87127402899009E1F04 /* Groups */,
 				2E4EF8AE2729E49A0085E459 /* AppDelegate.swift */,
@@ -78,7 +91,10 @@
 		2EDCF87127402899009E1F04 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
-				2EDCF876274028F8009E1F04 /* GroupsController.swift */,
+				2EDCF876274028F8009E1F04 /* MyGroupsController.swift */,
+				2EDCF87E27404BE0009E1F04 /* AllGroupsController.swift */,
+				2EDCF88127404CB4009E1F04 /* MyGroupsCell.swift */,
+				2EDCF88427404CCC009E1F04 /* AllGroupsCell.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -88,8 +104,18 @@
 			children = (
 				2EDCF873274028DF009E1F04 /* FriendsController.swift */,
 				2EDCF87A27403BBA009E1F04 /* FriendCell.swift */,
+				2EDCF88E27404DEC009E1F04 /* MyFriendController.swift */,
 			);
 			path = Friends;
+			sourceTree = "<group>";
+		};
+		2EDCF88727404CE0009E1F04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2EDCF88827404D0D009E1F04 /* User.swift */,
+				2EDCF88B27404D36009E1F04 /* Group.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,12 +188,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EDCF877274028F8009E1F04 /* GroupsController.swift in Sources */,
+				2EDCF88C27404D36009E1F04 /* Group.swift in Sources */,
+				2EDCF87F27404BE0009E1F04 /* AllGroupsController.swift in Sources */,
+				2EDCF877274028F8009E1F04 /* MyGroupsController.swift in Sources */,
 				2EDCF87B27403BBA009E1F04 /* FriendCell.swift in Sources */,
+				2EDCF88227404CB4009E1F04 /* MyGroupsCell.swift in Sources */,
+				2EDCF88F27404DEC009E1F04 /* MyFriendController.swift in Sources */,
 				2E4EF8C52729E5080085E459 /* LoginFormController.swift in Sources */,
 				2EDCF874274028DF009E1F04 /* FriendsController.swift in Sources */,
 				2E4EF8AF2729E49A0085E459 /* AppDelegate.swift in Sources */,
 				2E4EF8B12729E49A0085E459 /* SceneDelegate.swift in Sources */,
+				2EDCF88927404D0D009E1F04 /* User.swift in Sources */,
+				2EDCF88527404CCC009E1F04 /* AllGroupsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  FriendsController.swift
+//  AllGroupsController.swift
 //  Weather
 //
 //  Created by Nikolai Krusser on 13.11.2021.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-class FriendsController: UITableViewController {
-    
-    var friends = ["Donald",
-                   "Popeye",
-                   "Jerri",
-                   "Scrooge",
-                   "Eric Cartman",
-                   "Lisa Simpson"]
+class AllGroupsController: UITableViewController {
 
+    var groups = ["Picasso",
+                    "Brodsky",
+                    "Zvetayeva",
+                    "Пастернак",
+                    "Bredbery",
+                    "Country Life"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,18 +35,19 @@ class FriendsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friends.count
+        return groups.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendCell
-        let friend = friends[indexPath.row]
-        cell.nameFriendLabel.text = friend
-        cell.avaFriendImage.image = UIImage(named: friend)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AllGroupsCell", for: indexPath) as! AllGroupsCell
+
+        // Configure the cell...
+        let group = groups[indexPath.row]
+        cell.groupLabel.text = group
+        cell.groupImage.image = UIImage(named: group)
 
         return cell
     }
-  
 
     /*
     // Override to support conditional editing of the table view.

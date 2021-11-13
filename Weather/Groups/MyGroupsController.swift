@@ -7,8 +7,12 @@
 
 import UIKit
 
-class GroupsController: UITableViewController {
+class MyGroupsController: UITableViewController {
 
+    var myGroups = ["Picasso",
+                    "Brodsky",
+                    "Zvetayeva"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,23 +27,23 @@ class GroupsController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return myGroups.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupsCell", for: indexPath) as! MyGroupsCell
 
-        // Configure the cell...
+        let group = myGroups[indexPath.row]
+        cell.myGroupLabel.text = group
+        cell.myGroupImage.image = UIImage(named: group)
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
