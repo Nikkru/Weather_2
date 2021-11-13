@@ -20,8 +20,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="92O-vr-sO5">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drM-py-da7">
-                                        <rect key="frame" x="164.5" y="45" width="85" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вконтакте" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drM-py-da7">
+                                        <rect key="frame" x="153" y="45" width="108.5" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -118,14 +118,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VD4-gH-sBm">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="179" id="VD4-gH-sBm" customClass="FriendCell" customModule="Weather" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="179"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VD4-gH-sBm" id="EHi-2B-zg6">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6p-Jb-uyJ">
+                                            <rect key="frame" x="20" y="79" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uH1-vd-Pah">
+                                            <rect key="frame" x="244" y="11" width="150" height="157"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="EMX-IM-sAL"/>
+                                                <constraint firstAttribute="height" constant="150" id="Pqe-ge-TYh"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="e6p-Jb-uyJ" firstAttribute="leading" secondItem="EHi-2B-zg6" secondAttribute="leadingMargin" id="1wl-jG-rJ7"/>
+                                        <constraint firstItem="uH1-vd-Pah" firstAttribute="trailing" secondItem="EHi-2B-zg6" secondAttribute="trailingMargin" id="Co4-W7-9Gr"/>
+                                        <constraint firstItem="uH1-vd-Pah" firstAttribute="top" secondItem="EHi-2B-zg6" secondAttribute="topMargin" id="GYE-ub-ao6"/>
+                                        <constraint firstItem="e6p-Jb-uyJ" firstAttribute="centerY" secondItem="EHi-2B-zg6" secondAttribute="centerY" id="W8y-1V-e10"/>
+                                        <constraint firstItem="uH1-vd-Pah" firstAttribute="centerY" secondItem="EHi-2B-zg6" secondAttribute="centerY" id="YHm-Cc-FXh"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="avaFriendImage" destination="uH1-vd-Pah" id="M0W-ii-ynI"/>
+                                    <outlet property="nameFriendLabel" destination="e6p-Jb-uyJ" id="Mej-Tp-W7q"/>
                                     <segue destination="JZ3-rl-VuI" kind="show" id="S4i-uK-oMc"/>
                                 </connections>
                             </tableViewCell>
@@ -139,7 +163,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y4j-0W-dhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2909" y="351"/>
+            <point key="canvasLocation" x="2908.6956521739135" y="350.89285714285711"/>
         </scene>
         <!--GROUPS-->
         <scene sceneID="9if-oV-X3Z">

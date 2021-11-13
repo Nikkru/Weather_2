@@ -15,6 +15,7 @@
 		2E4EF8C52729E5080085E459 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4EF8C42729E5080085E459 /* LoginFormController.swift */; };
 		2EDCF874274028DF009E1F04 /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF873274028DF009E1F04 /* FriendsController.swift */; };
 		2EDCF877274028F8009E1F04 /* GroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF876274028F8009E1F04 /* GroupsController.swift */; };
+		2EDCF87B27403BBA009E1F04 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF87A27403BBA009E1F04 /* FriendCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2E4EF8C42729E5080085E459 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		2EDCF873274028DF009E1F04 /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
 		2EDCF876274028F8009E1F04 /* GroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsController.swift; sourceTree = "<group>"; };
+		2EDCF87A27403BBA009E1F04 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				2EDCF873274028DF009E1F04 /* FriendsController.swift */,
+				2EDCF87A27403BBA009E1F04 /* FriendCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EDCF877274028F8009E1F04 /* GroupsController.swift in Sources */,
+				2EDCF87B27403BBA009E1F04 /* FriendCell.swift in Sources */,
 				2E4EF8C52729E5080085E459 /* LoginFormController.swift in Sources */,
 				2EDCF874274028DF009E1F04 /* FriendsController.swift in Sources */,
 				2E4EF8AF2729E49A0085E459 /* AppDelegate.swift in Sources */,
