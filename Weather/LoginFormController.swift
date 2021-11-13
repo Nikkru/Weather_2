@@ -10,8 +10,9 @@ import UIKit
 class LoginFormController: UIViewController {
 
     @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var loginInput: UITextField!
-    @IBOutlet var passwordInput: UITextField!
+    @IBOutlet var loginTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet weak var enterButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +63,8 @@ class LoginFormController: UIViewController {
         }
         
         func checkUserData() -> Bool {
-            guard let login = loginInput.text,
-                let password = passwordInput.text else { return false }
+            guard let login = loginTextField.text,
+                let password = passwordTextField.text else { return false }
             
             if login == "admin" && password == "123456" {
                 return true
@@ -83,8 +84,6 @@ class LoginFormController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
 
-
-    
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
            
@@ -107,9 +106,9 @@ class LoginFormController: UIViewController {
     }
     @IBAction func loginButtonPressed(_ sender: Any) {
         // Получаем текст логина
-               let login = loginInput.text!
+               let login = loginTextField.text!
                // Получаем текст-пароль
-               let password = passwordInput.text!
+               let password = passwordTextField.text!
                
                // Проверяем, верны ли они
                if login == "admin" && password == "123456" {

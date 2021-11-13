@@ -13,6 +13,8 @@
 		2E4EF8B82729E49B0085E459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4EF8B72729E49B0085E459 /* Assets.xcassets */; };
 		2E4EF8BB2729E49B0085E459 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4EF8B92729E49B0085E459 /* LaunchScreen.storyboard */; };
 		2E4EF8C52729E5080085E459 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4EF8C42729E5080085E459 /* LoginFormController.swift */; };
+		2EDCF874274028DF009E1F04 /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF873274028DF009E1F04 /* FriendsController.swift */; };
+		2EDCF877274028F8009E1F04 /* GroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCF876274028F8009E1F04 /* GroupsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2E4EF8BA2729E49B0085E459 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E4EF8BC2729E49B0085E459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E4EF8C42729E5080085E459 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
+		2EDCF873274028DF009E1F04 /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
+		2EDCF876274028F8009E1F04 /* GroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,33 @@
 		2E4EF8AD2729E49A0085E459 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				2E4EF8B42729E49A0085E459 /* Main.storyboard */,
 				2E4EF8C42729E5080085E459 /* LoginFormController.swift */,
+				2EDCF872274028B3009E1F04 /* Friends */,
+				2EDCF87127402899009E1F04 /* Groups */,
 				2E4EF8AE2729E49A0085E459 /* AppDelegate.swift */,
 				2E4EF8B02729E49A0085E459 /* SceneDelegate.swift */,
-				2E4EF8B42729E49A0085E459 /* Main.storyboard */,
 				2E4EF8B72729E49B0085E459 /* Assets.xcassets */,
 				2E4EF8B92729E49B0085E459 /* LaunchScreen.storyboard */,
 				2E4EF8BC2729E49B0085E459 /* Info.plist */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		2EDCF87127402899009E1F04 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				2EDCF876274028F8009E1F04 /* GroupsController.swift */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		2EDCF872274028B3009E1F04 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				2EDCF873274028DF009E1F04 /* FriendsController.swift */,
+			);
+			path = Friends;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDCF877274028F8009E1F04 /* GroupsController.swift in Sources */,
 				2E4EF8C52729E5080085E459 /* LoginFormController.swift in Sources */,
+				2EDCF874274028DF009E1F04 /* FriendsController.swift in Sources */,
 				2E4EF8AF2729E49A0085E459 /* AppDelegate.swift in Sources */,
 				2E4EF8B12729E49A0085E459 /* SceneDelegate.swift in Sources */,
 			);
