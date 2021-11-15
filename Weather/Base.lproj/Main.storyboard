@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="92O-vr-sO5">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92O-vr-sO5">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вконтакте" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drM-py-da7">
@@ -53,9 +53,6 @@
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLp-Cl-1Hr">
                                         <rect key="frame" x="144.5" y="317.5" width="125" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="125" id="UbQ-Nf-r5u"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -81,8 +78,10 @@
                                     <constraint firstItem="n2r-3u-i0f" firstAttribute="top" secondItem="RIL-yP-XyB" secondAttribute="bottom" constant="50" id="XvN-Ff-UjL"/>
                                     <constraint firstItem="Cbq-Yk-VWo" firstAttribute="centerX" secondItem="92O-vr-sO5" secondAttribute="centerX" id="abb-1c-Kwq"/>
                                     <constraint firstItem="jLp-Cl-1Hr" firstAttribute="top" secondItem="n2r-3u-i0f" secondAttribute="bottom" constant="30" id="bHC-uy-0Ve"/>
+                                    <constraint firstAttribute="trailing" secondItem="RIL-yP-XyB" secondAttribute="trailing" constant="144.5" id="dY4-a3-fIC"/>
                                     <constraint firstItem="drM-py-da7" firstAttribute="top" secondItem="92O-vr-sO5" secondAttribute="top" constant="45" id="hBb-2a-pRD"/>
                                     <constraint firstItem="n2r-3u-i0f" firstAttribute="centerX" secondItem="92O-vr-sO5" secondAttribute="centerX" id="jtZ-RG-VTH"/>
+                                    <constraint firstItem="jLp-Cl-1Hr" firstAttribute="width" secondItem="RIL-yP-XyB" secondAttribute="width" id="tdF-BR-1yd"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="xDp-fv-hpw"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="L4m-6q-9de"/>
@@ -341,6 +340,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="vxM-sL-QWU"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M6S-kC-1EW">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
