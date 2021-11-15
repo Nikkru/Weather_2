@@ -13,6 +13,7 @@ class LoginFormController: UIViewController {
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet weak var enterButton: UIButton!
+    @IBOutlet weak var teacherSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,7 @@ class LoginFormController: UIViewController {
             let checkResult = checkUserData()
             
             // Если данные не верны, покажем ошибку
-            if !checkResult {
+        if !checkResult && !teacherSwitch.isOn {
                 showLoginError()
             }
             
@@ -66,7 +67,7 @@ class LoginFormController: UIViewController {
             guard let login = loginTextField.text,
                 let password = passwordTextField.text else { return false }
             
-            if login == "admin" && password == "123456" {
+            if (login == "admin" && password == "123456") || teacherSwitch.isOn {
                 return true
             } else {
                 return false
@@ -75,7 +76,7 @@ class LoginFormController: UIViewController {
         
         func showLoginError() {
             // Создаем контроллер
-            let alert = UIAlertController(title: "Ошибка", message: "Введены не верные данные пользователя", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Ошибка", message: "Введены неверные данные пользователя", preferredStyle: .alert)
             // Создаем кнопку для UIAlertController
             let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             // Добавляем кнопку на UIAlertController
@@ -117,4 +118,7 @@ class LoginFormController: UIViewController {
                    print("ошибка")
                }
     }
+    @IBAction func tappedSwitch(_ sender: UISwitch) {
+    }
+    
 }
