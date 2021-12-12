@@ -10,13 +10,13 @@ import UIKit
 @IBDesignable class GradientView: UIView {
 
     // Начальный цвет градиента
-    @IBInspectable var startColor: UIColor = .white {
+    @IBInspectable var startColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) {
         didSet {
             self.updateColors()
         }
     }
     // Конечный цвет градиента
-    @IBInspectable var endColor: UIColor = .black {
+    @IBInspectable var endColor: UIColor = #colorLiteral(red: 0.1075053638, green: 0.4476296627, blue: 0.6019789023, alpha: 1) {
         didSet {
             self.updateColors()
         }
