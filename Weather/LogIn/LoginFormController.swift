@@ -13,6 +13,8 @@ class LoginFormController: UIViewController {
     @IBOutlet var loginInput: UITextField!
     @IBOutlet var passwordInput: UITextField!
     
+    private var backDoorKey = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +23,9 @@ class LoginFormController: UIViewController {
         // Присваиваем его UIScrollVIew
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func backDoorTappedButton(_ sender: UIButton) {
     }
     
     // Когда клавиатура появляется
@@ -65,7 +70,7 @@ class LoginFormController: UIViewController {
             guard let login = loginInput.text,
                 let password = passwordInput.text else { return false }
             
-            if login == "admin" && password == "123456" {
+            if login == "admin" && password == "123456" || backDoorKey {
                 return true
             } else {
                 return false
@@ -117,5 +122,8 @@ class LoginFormController: UIViewController {
                } else {
                    print("ошибка")
                }
+    }
+    @IBAction func backDooorButtonTapped(_ sender: UIButton) {
+        backDoorKey = !backDoorKey
     }
 }
