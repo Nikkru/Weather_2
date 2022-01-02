@@ -48,7 +48,7 @@ class MyCitiesController: UITableViewController {
             guard let allCitiesController = segue.source as? AllCitiesController else { return }
             if let indexPath = allCitiesController.tableView.indexPathForSelectedRow {
                 let city = allCitiesController.cities[indexPath.row]
-                cities.append(city)
+                cities.append(city.title)
                 tableView.reloadData()
             }
         }

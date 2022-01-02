@@ -48,9 +48,14 @@ class AllCitiesCell: UITableViewCell {
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
-            
+        
+       
+//        cityEmblemView.frame.size = CGSize(width: 100, height: 100)
+
         cityEmblemView.clipsToBounds = true
         cityEmblemView.layer.cornerRadius = cityEmblemView.frame.width / 2
+        cityEmblemView.layer.backgroundColor = UIColor.white.cgColor
+        cityEmblemView.sizeToFit()
     }
 
 }
