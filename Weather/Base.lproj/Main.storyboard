@@ -161,20 +161,46 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sg-Bh-rtJ" customClass="GradientView" customModule="Weather" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                    <color key="value" red="0.48599803450000001" green="0.6197280288" blue="0.64119827750000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                    <color key="value" red="0.22828987240000001" green="0.4693045616" blue="0.56962019210000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFn-Jg-si0">
-                                            <rect key="frame" x="20" y="11.5" width="41.5" height="20.5"/>
+                                            <rect key="frame" x="61.5" y="11.5" width="41.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xhG-KT-8Qd">
+                                            <rect key="frame" x="8" y="0.0" width="43.5" height="43.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="xhG-KT-8Qd" secondAttribute="height" multiplier="1:1" id="XPQ-gP-Ns1"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="qFn-Jg-si0" firstAttribute="leading" secondItem="ZQk-2r-Uwb" secondAttribute="leadingMargin" id="BAJ-Yj-Yhj"/>
-                                        <constraint firstItem="qFn-Jg-si0" firstAttribute="centerY" secondItem="ZQk-2r-Uwb" secondAttribute="centerY" id="DsE-6u-BtD"/>
+                                        <constraint firstItem="5sg-Bh-rtJ" firstAttribute="top" secondItem="ZQk-2r-Uwb" secondAttribute="top" id="51l-SD-KxW"/>
+                                        <constraint firstItem="xhG-KT-8Qd" firstAttribute="leading" secondItem="ZQk-2r-Uwb" secondAttribute="leading" constant="8" id="5H6-Ii-15P"/>
+                                        <constraint firstItem="qFn-Jg-si0" firstAttribute="leading" secondItem="xhG-KT-8Qd" secondAttribute="trailing" constant="10" id="G7R-PA-CCq"/>
+                                        <constraint firstAttribute="trailing" secondItem="5sg-Bh-rtJ" secondAttribute="trailing" id="J8k-Dj-TlR"/>
+                                        <constraint firstItem="qFn-Jg-si0" firstAttribute="centerY" secondItem="ZQk-2r-Uwb" secondAttribute="centerY" id="SDK-tD-rDa"/>
+                                        <constraint firstAttribute="bottom" secondItem="5sg-Bh-rtJ" secondAttribute="bottom" id="TOA-nK-1bh"/>
+                                        <constraint firstItem="xhG-KT-8Qd" firstAttribute="top" secondItem="ZQk-2r-Uwb" secondAttribute="top" id="WS7-eG-UHs"/>
+                                        <constraint firstAttribute="bottom" secondItem="xhG-KT-8Qd" secondAttribute="bottom" id="m3s-ja-KsW"/>
+                                        <constraint firstItem="5sg-Bh-rtJ" firstAttribute="leading" secondItem="ZQk-2r-Uwb" secondAttribute="leading" id="r5f-I2-xSK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="cityName" destination="qFn-Jg-si0" id="Rgd-XX-Odg"/>
+                                    <outlet property="cityEmblemView" destination="xhG-KT-8Qd" id="j1b-cj-qs9"/>
+                                    <outlet property="cityTitleLabel" destination="qFn-Jg-si0" id="wQl-bt-Krk"/>
                                     <segue destination="Xwf-HS-bF5" kind="unwind" identifier="addCity" unwindAction="addCityWithSegue:" id="Qr7-E8-pUX"/>
                                 </connections>
                             </tableViewCell>
@@ -196,7 +222,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLw-9p-THb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Xwf-HS-bF5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="138" y="828"/>
+            <point key="canvasLocation" x="137.68115942028987" y="827.67857142857144"/>
         </scene>
         <!--Weather View Controller-->
         <scene sceneID="rqj-6c-2Er">
@@ -288,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgM-ag-QQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="1525.4464285714284"/>
+            <point key="canvasLocation" x="1917" y="828"/>
         </scene>
         <!--My Cities Controller-->
         <scene sceneID="1tL-Bi-glM">

@@ -47,7 +47,7 @@ class AllCitiesController: UITableViewController {
             let city = cities[indexPath.row]
             
             // Устанавливаем город в надпись ячейки
-            cell.cityName.text = city
+            cell.cityTitleLabel.text = city
 
             return cell
         }
