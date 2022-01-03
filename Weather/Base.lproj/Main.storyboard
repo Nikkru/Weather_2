@@ -331,6 +331,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0eA-8c-xJC" customClass="GradientView" customModule="Weather" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                    <color key="value" red="0.65973313559291324" green="0.84455495418752102" blue="0.87755614552030459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                    <color key="value" red="0.22828987240000001" green="0.4693045616" blue="0.56962019210000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALK-oG-hy3">
                                             <rect key="frame" x="20" y="11.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -339,6 +351,10 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="0eA-8c-xJC" secondAttribute="bottom" id="7vo-Bk-vJy"/>
+                                        <constraint firstItem="0eA-8c-xJC" firstAttribute="leading" secondItem="WEj-y3-mxC" secondAttribute="leading" id="FZw-Do-Umk"/>
+                                        <constraint firstAttribute="trailing" secondItem="0eA-8c-xJC" secondAttribute="trailing" id="KhF-l3-Cow"/>
+                                        <constraint firstItem="0eA-8c-xJC" firstAttribute="top" secondItem="WEj-y3-mxC" secondAttribute="top" id="Wyj-oX-RNi"/>
                                         <constraint firstItem="ALK-oG-hy3" firstAttribute="leading" secondItem="WEj-y3-mxC" secondAttribute="leadingMargin" id="kWi-o1-JQb"/>
                                         <constraint firstItem="ALK-oG-hy3" firstAttribute="centerY" secondItem="WEj-y3-mxC" secondAttribute="centerY" id="un2-Ov-ypy"/>
                                     </constraints>
