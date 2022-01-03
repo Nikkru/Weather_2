@@ -68,7 +68,7 @@
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TJa-cL-4ru"/>
-                                            <segue destination="xNl-mB-xMw" kind="show" id="8X5-MO-OI6"/>
+                                            <segue destination="gnF-dQ-Vpe" kind="show" id="Ba4-wJ-yhE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -98,7 +98,7 @@
                                 <state key="normal" image="arrowshape.turn.up.forward.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="backDooorButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="smF-k5-GC3"/>
-                                    <segue destination="xNl-mB-xMw" kind="show" id="Gqd-B2-iWC"/>
+                                    <segue destination="gnF-dQ-Vpe" kind="show" id="LL7-SY-d4j"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -201,7 +201,7 @@
                                 <connections>
                                     <outlet property="cityEmblemView" destination="xhG-KT-8Qd" id="j1b-cj-qs9"/>
                                     <outlet property="cityTitleLabel" destination="qFn-Jg-si0" id="wQl-bt-Krk"/>
-                                    <segue destination="Xwf-HS-bF5" kind="unwind" identifier="addCity" unwindAction="addCityWithSegue:" id="Qr7-E8-pUX"/>
+                                    <segue destination="Xwf-HS-bF5" kind="unwind" identifier="addCity" unwindAction="addCityWithSegue:" id="Si8-7I-S2C"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -214,7 +214,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="h8c-L8-Umr">
                             <connections>
                                 <action selector="add:" destination="xNl-mB-xMw" id="teo-iw-Uwv"/>
-                                <segue destination="gnF-dQ-Vpe" kind="show" identifier="addCity" id="xY2-bY-6yr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -222,7 +221,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLw-9p-THb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Xwf-HS-bF5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="827.67857142857144"/>
+            <point key="canvasLocation" x="330" y="822"/>
         </scene>
         <!--Weather View Controller-->
         <scene sceneID="rqj-6c-2Er">
@@ -355,7 +354,13 @@
                             <outlet property="delegate" destination="gnF-dQ-Vpe" id="cmF-7n-SdQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3jD-mq-luL"/>
+                    <navigationItem key="navigationItem" id="3jD-mq-luL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EfV-Jn-1Bm">
+                            <connections>
+                                <segue destination="xNl-mB-xMw" kind="show" id="vQz-en-Fmk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hai-cT-34A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -381,7 +386,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8X5-MO-OI6"/>
+        <segue reference="LL7-SY-d4j"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="01d" width="100" height="100"/>

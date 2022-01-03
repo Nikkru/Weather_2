@@ -42,17 +42,37 @@ class MyCitiesController: UITableViewController {
 
         return cell
     }
-   //  не получается реализовать метод :(
+    
+    //  не получается реализовать метод :(
     @IBAction func addCity(segue: UIStoryboardSegue) {
+        // Проверяем идентификатор перехода, чтобы убедиться, что это нужный
         if segue.identifier == "addCity" {
-            guard let allCitiesController = segue.source as? AllCitiesController else { return }
+            // Получаем ссылку на контроллер, с которого осуществлен переход
+            let allCitiesController = segue.source as! AllCitiesController
+            
+            // Получаем индекс выделенной ячейки
             if let indexPath = allCitiesController.tableView.indexPathForSelectedRow {
+                // Получаем город по индексу
                 let city = allCitiesController.cities[indexPath.row]
-                cities.append(city.title)
-                tableView.reloadData()
+                
+                // Проверяем, что такого города нет в списке
+                if !cities.contains(city.title) {
+                    // Добавляем город в список выбранных
+                    cities.append(city.title)
+                    // Обновляем таблицу
+                    tableView.reloadData()
+                }
             }
         }
-        }
+//        if segue.identifier == "addCity" {
+//            guard let allCitiesController = segue.source as? AllCitiesController else { return }
+//            if let indexPath = allCitiesController.tableView.indexPathForSelectedRow {
+//                let city = allCitiesController.cities[indexPath.row]
+//                cities.append(city.title)
+//                tableView.reloadData()
+//            }
+//        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
