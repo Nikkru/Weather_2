@@ -10,6 +10,7 @@ import UIKit
 class MyCitiesController: UITableViewController {
 
     var cities = [String]()
+//    var cities: [(title: String, emblemURL: String)]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
