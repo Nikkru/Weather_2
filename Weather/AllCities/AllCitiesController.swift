@@ -9,31 +9,18 @@ import UIKit
 import SDWebImage
 
 class AllCitiesController: UITableViewController {
-    
-    let urlTokio = "https://www.ph4.ru/DL/HERALD/CITIES/jp/arms_tokyo.gif"
-    
-    let dict: [String: String] = [
-        "title": "Moscow", "emblemURL":  "https://www.ph4.ru/DL/HERALD/CITIES/ru/arms_moscow_of.gif"
-    ]
-//    let c = CityModel(dict: dict)
+
 var cities = [
-    City(title: "Moscow", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/ru/arms_moscow_of.gif"),
-    City(title: "Krasnoyarsk", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/ru/arms_krasnoyarsk.gif"),
-    City(title: "London", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/uk/arms_london.gif"),
-    City(title: "Paris", emblemURL:  "https://www.ph4.ru/DL/HERALD/DISTRICTS/fr/arms_paris.gif"),
-    City(title: "Tokio", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/jp/arms_tokyo.gif")
+    City(title: "Moscow", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/ru/arms_moscow_of.gif", emblemImage: #imageLiteral(resourceName: "01d")),
+    City(title: "Krasnoyarsk", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/ru/arms_krasnoyarsk.gif", emblemImage: #imageLiteral(resourceName: "01d")),
+    City(title: "London", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/uk/arms_london.gif", emblemImage: #imageLiteral(resourceName: "01d")),
+    City(title: "Paris", emblemURL:  "https://www.ph4.ru/DL/HERALD/DISTRICTS/fr/arms_paris.gif", emblemImage: #imageLiteral(resourceName: "01d")),
+    City(title: "Tokio", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/jp/arms_tokyo.gif", emblemImage: #imageLiteral(resourceName: "01d"))
 ]
-    var citis = [
-        (title: "Moscow", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/ru/arms_moscow_of.gif"),
-        (title: "Krasnoyarsk", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/ru/arms_krasnoyarsk.gif"),
-        (title: "London", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/uk/arms_london.gif"),
-        (title: "Paris", emblemURL:  "https://www.ph4.ru/DL/HERALD/DISTRICTS/fr/arms_paris.gif"),
-        (title: "Tokio", emblemURL:  "https://www.ph4.ru/DL/HERALD/CITIES/jp/arms_tokyo.gif")
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.backgroundColor = #colorLiteral(red: 0.2282898724, green: 0.4693045616, blue: 0.5696201921, alpha: 1)
     }
     
     // MARK: - Table view data source
@@ -66,6 +53,7 @@ var cities = [
             cell.cityEmblemView?.sd_setImage(with: url) { (image, _, _, _) in
                 tableView.reloadRows(at: [indexPath], with: .automatic)
             }
+            cities[indexPath.row].emblemImage = cell.cityEmblemView.image
         }
         
         return cell
@@ -77,14 +65,16 @@ var cities = [
         guard let indexPath = tableView.indexPathForSelectedRow  else { return }
         let destinationVC: MyCitiesController = segue.destination as! MyCitiesController
         let city = cities[indexPath.row]
-        if !destinationVC.cities.contains(city.title) {
-            destinationVC.cities.append(city.title)
+        if ((destinationVC.cities.first(where: { $0.title == city.title }) == nil)) {
+            destinationVC.cities.append(city)
             destinationVC.tableView.reloadData()
         }
     }
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             cities.remove(at: indexPath.row)
