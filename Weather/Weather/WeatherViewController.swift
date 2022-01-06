@@ -35,7 +35,7 @@ extension WeatherViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell",
                                                       for: indexPath) as! WeatherCell
         // Configure the cell
-        cell.weather.text = "30 C"
+        cell.weather.text = "30"
         cell.time.text = "30.08.2017 18:00"
         
         return cell
