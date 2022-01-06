@@ -11,7 +11,7 @@ class AllCitiesCell: UITableViewCell {
 
     @IBOutlet var cityTitleLabel: UILabel! {
         didSet {
-            cityTitleLabel.textColor = #colorLiteral(red: 1, green: 0.9833967274, blue: 0.3201008165, alpha: 1)
+            cityTitleLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
     }
     @IBOutlet var cityEmblemView: UIImageView! {
@@ -48,14 +48,10 @@ class AllCitiesCell: UITableViewCell {
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
-        
-       
-//        cityEmblemView.frame.size = CGSize(width: 100, height: 100)
 
         cityEmblemView.clipsToBounds = true
         cityEmblemView.layer.cornerRadius = cityEmblemView.frame.width / 2
         cityEmblemView.layer.backgroundColor = UIColor.white.cgColor
-//        cityEmblemView.sizeToFit()
     }
 
 }

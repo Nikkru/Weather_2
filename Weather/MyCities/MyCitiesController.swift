@@ -10,12 +10,11 @@ import UIKit
 class MyCitiesController: UITableViewController {
     
     var citie: City?
-    var emblemImage = UIImage()
-
     var cities = [City]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = #colorLiteral(red: 0.2282898724, green: 0.4693045616, blue: 0.5696201921, alpha: 1)
 
     }
 
@@ -30,7 +29,6 @@ class MyCitiesController: UITableViewController {
         return cities.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCitiesCell", for: indexPath) as! MyCitiesCell
 
@@ -45,33 +43,18 @@ class MyCitiesController: UITableViewController {
         return 50
     }
     
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            cities.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     @IBAction func addCity(segue: UIStoryboardSegue) {
-//        // Проверяем идентификатор перехода, чтобы убедиться, что это нужный
-//        if segue.identifier == "addCity" {
-//            // Получаем ссылку на контроллер, с которого осуществлен переход
-//            let allCitiesController = segue.source as! AllCitiesController
-//
-//            // Получаем индекс выделенной ячейки
-//            if let indexPath = allCitiesController.tableView.indexPathForSelectedRow {
-//                // Получаем город по индексу
-//                let city = allCitiesController.cities[indexPath.row]
-//
-//                // Проверяем, что такого города нет в списке
-//                if !(cities.first?.title.contains(city.title))! {
-//                    // Добавляем город в список выбранных
-//                    cities.append(city)
-//                    // Обновляем таблицу
-//                    tableView.reloadData()
-//                }
-//            }
-//        }
-//        if segue.identifier == "addCity" {
-//            guard let allCitiesController = segue.source as? AllCitiesController else { return }
-//            if let indexPath = allCitiesController.tableView.indexPathForSelectedRow {
-//                let city = allCitiesController.cities[indexPath.row]
-//                cities.append(city.title)
-//                tableView.reloadData()
-//            }
-//        }
+
     }
 }

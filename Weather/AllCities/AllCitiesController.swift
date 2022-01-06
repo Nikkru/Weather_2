@@ -71,17 +71,6 @@ var cities = [
         }
     }
     
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCell.EditingStyle,
-                            forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            cities.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-    
     @IBAction func add(_ sender: Any) {
     }
     
