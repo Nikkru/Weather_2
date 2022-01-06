@@ -8,15 +8,25 @@
 import UIKit
 
 class LoginFormController: UIViewController {
-
+    
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var loginInput: UITextField!
     @IBOutlet var passwordInput: UITextField!
+    
+    @IBOutlet weak var passwordTitleView: UILabel!
+    @IBOutlet weak var loginTitleView: UILabel!
+    @IBOutlet weak var titleView: UILabel!
+    @IBOutlet weak var authViewButton: UIButton!
     
     private var backDoorKey = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        animateTitlesAppearing()
+        animateTitleAppearing()
+        animateFieldsAppearing()
+        animateAuthButton()
         
         // Жест нажатия
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -29,82 +39,137 @@ class LoginFormController: UIViewController {
     }
     
     // Когда клавиатура появляется
-      @objc func keyboardWasShown(notification: Notification) {
-          
-          // Получаем размер клавиатуры
-          let info = notification.userInfo! as NSDictionary
-          let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
-          let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
-          
-          // Добавляем отступ внизу UIScrollView, равный размеру клавиатуры
-          self.scrollView?.contentInset = contentInsets
-          scrollView?.scrollIndicatorInsets = contentInsets
-      }
-      
-      //Когда клавиатура исчезает
-      @objc func keyboardWillBeHidden(notification: Notification) {
-          // Устанавливаем отступ внизу UIScrollView, равный 0
-          let contentInsets = UIEdgeInsets.zero
-          scrollView?.contentInset = contentInsets
-      }
+    @objc func keyboardWasShown(notification: Notification) {
+        
+        // Получаем размер клавиатуры
+        let info = notification.userInfo! as NSDictionary
+        let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
+        
+        // Добавляем отступ внизу UIScrollView, равный размеру клавиатуры
+        self.scrollView?.contentInset = contentInsets
+        scrollView?.scrollIndicatorInsets = contentInsets
+    }
+    
+    //Когда клавиатура исчезает
+    @objc func keyboardWillBeHidden(notification: Notification) {
+        // Устанавливаем отступ внизу UIScrollView, равный 0
+        let contentInsets = UIEdgeInsets.zero
+        scrollView?.contentInset = contentInsets
+    }
     
     @objc func hideKeyboard() {
-            self.scrollView?.endEditing(true)
-        }
+        self.scrollView?.endEditing(true)
+    }
     
- // MARK: Логика проверки ввода и перехода на первую странцу приложения
+    // MARK: Логика проверки ввода и перехода на первую странцу приложения
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-            // Проверяем данные
-            let checkResult = checkUserData()
-            
-            // Если данные не верны, покажем ошибку
-            if !checkResult {
-                showLoginError()
-            }
-            
-            // Вернем результат
-            return checkResult
+        // Проверяем данные
+        let checkResult = checkUserData()
+        
+        // Если данные не верны, покажем ошибку
+        if !checkResult {
+            showLoginError()
         }
         
-        func checkUserData() -> Bool {
-            guard let login = loginInput.text,
-                let password = passwordInput.text else { return false }
-            
-            if login == "admin" && password == "123456" || backDoorKey {
-                return true
-            } else {
-                return false
-            }
-        }
+        // Вернем результат
+        return checkResult
+    }
+    
+    func checkUserData() -> Bool {
+        guard let login = loginInput.text,
+              let password = passwordInput.text else { return false }
         
-        func showLoginError() {
-            // Создаем контроллер
-            let alert = UIAlertController(title: "Ошибка", message: "Введены неверные данные пользователя", preferredStyle: .alert)
-            // Создаем кнопку для UIAlertController
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            // Добавляем кнопку на UIAlertController
-            alert.addAction(action)
-            // Показываем UIAlertController
-            present(alert, animated: true, completion: nil)
+        if login == "admin" && password == "123456" || backDoorKey {
+            return true
+        } else {
+            return false
         }
-
-
+    }
+    
+    func showLoginError() {
+        // Создаем контроллер
+        let alert = UIAlertController(title: "Ошибка", message: "Введены неверные данные пользователя", preferredStyle: .alert)
+        // Создаем кнопку для UIAlertController
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        // Добавляем кнопку на UIAlertController
+        alert.addAction(action)
+        // Показываем UIAlertController
+        present(alert, animated: true, completion: nil)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           
-           // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
-           NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
-           // Второе — когда она пропадает
-           NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-       }
-
+        super.viewWillAppear(animated)
+        
+        // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
+        // Второе — когда она пропадает
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            
-            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        }
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    //MARK:- Animation block
+    
+    func animateTitlesAppearing() {
+        let offset = view.bounds.width
+        loginTitleView.transform = CGAffineTransform(translationX: -offset, y: 0)
+        passwordTitleView.transform = CGAffineTransform(translationX: offset, y: 0)
+        
+        UIView.animate(withDuration: 1,
+                       delay: 1,
+                       options: .curveEaseOut,
+                       animations: {
+                        self.loginTitleView.transform = .identity
+                        self.passwordTitleView.transform = .identity
+                       },
+                       completion: nil)
+    }
+    
+    func animateTitleAppearing() {
+        self.titleView.transform = CGAffineTransform(translationX: 0,
+                                                     y: -self.view.bounds.height/2)
+        
+        UIView.animate(withDuration: 1,
+                       delay: 1,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0,
+                       options: .curveEaseOut,
+                       animations: {
+                           self.titleView.transform = .identity
+                       },
+                       completion: nil)
+    }
+    
+    func animateFieldsAppearing() {
+        let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeInAnimation.fromValue = 0
+        fadeInAnimation.toValue = 1
+        fadeInAnimation.duration = 1
+        fadeInAnimation.beginTime = CACurrentMediaTime() + 1
+        fadeInAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        fadeInAnimation.fillMode = CAMediaTimingFillMode.backwards
+        
+        self.loginInput.layer.add(fadeInAnimation, forKey: nil)
+        self.passwordInput.layer.add(fadeInAnimation, forKey: nil)
+    }
+    func animateAuthButton() {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.stiffness = 200
+        animation.mass = 2
+        animation.duration = 2
+        animation.beginTime = CACurrentMediaTime() + 1
+        animation.fillMode = CAMediaTimingFillMode.backwards
+        
+        self.authViewButton.layer.add(animation, forKey: nil)
+    }
     
     @IBAction func loginInputTextField(_ sender: Any) {
     }
@@ -112,16 +177,16 @@ class LoginFormController: UIViewController {
     }
     @IBAction func loginButtonPressed(_ sender: Any) {
         // Получаем текст логина
-               let login = loginInput.text!
-               // Получаем текст-пароль
-               let password = passwordInput.text!
-               
-               // Проверяем, верны ли они
-               if login == "admin" && password == "123456" {
-                   print("успешная авторизация")
-               } else {
-                   print("ошибка")
-               }
+        let login = loginInput.text!
+        // Получаем текст-пароль
+        let password = passwordInput.text!
+        
+        // Проверяем, верны ли они
+        if login == "admin" && password == "123456" {
+            print("успешная авторизация")
+        } else {
+            print("ошибка")
+        }
     }
     @IBAction func backDooorButtonTapped(_ sender: UIButton) {
         backDoorKey = !backDoorKey
