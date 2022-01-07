@@ -19,6 +19,8 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var authViewButton: UIButton!
     
     private var backDoorKey = false
+    var interactiveAnimator: UIViewPropertyAnimator!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +35,37 @@ class LoginFormController: UIViewController {
         // Присваиваем его UIScrollVIew
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         // Do any additional setup after loading the view.
+        
+        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
+        self.view.addGestureRecognizer(recognizer)
     }
     
-    @IBAction func backDoorTappedButton(_ sender: UIButton) {
+    @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            interactiveAnimator?.startAnimation()
+            
+            interactiveAnimator = UIViewPropertyAnimator(duration: 0.5,
+                                                         dampingRatio: 0.5,
+                                                         animations: {
+                                                            self.authViewButton.transform = CGAffineTransform(translationX: 0,
+                                                                                                              y: 150)
+                                                         })
+            
+            interactiveAnimator.pauseAnimation()
+        case .changed:
+            let translation = recognizer.translation(in: self.view)
+            interactiveAnimator.fractionComplete = translation.y / 100
+        case .ended:
+            interactiveAnimator.stopAnimation(true)
+            
+            interactiveAnimator.addAnimations {
+                self.authViewButton.transform = .identity
+            }
+            
+            interactiveAnimator.startAnimation()
+        default: return
+        }
     }
     
     // Когда клавиатура появляется
@@ -44,7 +74,10 @@ class LoginFormController: UIViewController {
         // Получаем размер клавиатуры
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
-        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
+        let contentInsets = UIEdgeInsets(top: 0.0,
+                                         left: 0.0,
+                                         bottom: kbSize.height,
+                                         right: 0.0)
         
         // Добавляем отступ внизу UIScrollView, равный размеру клавиатуры
         self.scrollView?.contentInset = contentInsets
@@ -89,7 +122,9 @@ class LoginFormController: UIViewController {
     
     func showLoginError() {
         // Создаем контроллер
-        let alert = UIAlertController(title: "Ошибка", message: "Введены неверные данные пользователя", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Ошибка",
+                                      message: "Введены неверные данные пользователя",
+                                      preferredStyle: .alert)
         // Создаем кнопку для UIAlertController
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         // Добавляем кнопку на UIAlertController
@@ -102,7 +137,8 @@ class LoginFormController: UIViewController {
         super.viewWillAppear(animated)
         
         // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
         // Второе — когда она пропадает
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -117,33 +153,59 @@ class LoginFormController: UIViewController {
     //MARK:- Animation block
     
     func animateTitlesAppearing() {
-        let offset = view.bounds.width
-        loginTitleView.transform = CGAffineTransform(translationX: -offset, y: 0)
-        passwordTitleView.transform = CGAffineTransform(translationX: offset, y: 0)
         
-        UIView.animate(withDuration: 1,
-                       delay: 1,
-                       options: .curveEaseOut,
-                       animations: {
-                        self.loginTitleView.transform = .identity
-                        self.passwordTitleView.transform = .identity
-                       },
-                       completion: nil)
+        let offset = abs(self.loginTitleView.frame.midY - self.passwordTitleView.frame.midY)
+        
+        self.loginTitleView.transform = CGAffineTransform(translationX: 0, y: offset)
+        self.passwordTitleView.transform = CGAffineTransform(translationX: 0, y: -offset)
+        
+        UIView.animateKeyframes(withDuration: 1,
+                                delay: 1,
+                                options: .calculationModeCubicPaced,
+                                animations: {
+                                    UIView.addKeyframe(withRelativeStartTime: 0,
+                                                       relativeDuration: 0.5,
+                                                       animations: {
+                                                        self.loginTitleView.transform = CGAffineTransform(translationX: 150, y: 50)
+                                                        self.passwordTitleView.transform = CGAffineTransform(translationX: -150, y: -50)
+                                                       })
+                                    UIView.addKeyframe(withRelativeStartTime: 0.5,
+                                                       relativeDuration: 0.5,
+                                                       animations: {
+                                                        self.loginTitleView.transform = .identity
+                                                        self.passwordTitleView.transform = .identity
+                                                       })
+                                }, completion: nil)
+        //        UIView.animate(withDuration: 1,
+        //                       delay: 1,
+        //                       options: .curveEaseOut,
+        //                       animations: {
+        //                        self.loginTitleView.transform = .identity
+        //                        self.passwordTitleView.transform = .identity
+        //                       },
+        //                       completion: nil)
     }
     
     func animateTitleAppearing() {
         self.titleView.transform = CGAffineTransform(translationX: 0,
                                                      y: -self.view.bounds.height/2)
         
-        UIView.animate(withDuration: 1,
-                       delay: 1,
-                       usingSpringWithDamping: 0.5,
-                       initialSpringVelocity: 0,
-                       options: .curveEaseOut,
-                       animations: {
-                           self.titleView.transform = .identity
-                       },
-                       completion: nil)
+        let animator = UIViewPropertyAnimator(duration: 1,
+                                              dampingRatio: 0.5,
+                                              animations: {
+                                                self.titleView.transform = .identity
+                                              })
+        
+        animator.startAnimation(afterDelay: 1)
+        //        UIView.animate(withDuration: 1,
+        //                       delay: 1,
+        //                       usingSpringWithDamping: 0.5,
+        //                       initialSpringVelocity: 0,
+        //                       options: .curveEaseOut,
+        //                       animations: {
+        //                           self.titleView.transform = .identity
+        //                       },
+        //                       completion: nil)
     }
     
     func animateFieldsAppearing() {
@@ -155,8 +217,21 @@ class LoginFormController: UIViewController {
         fadeInAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         fadeInAnimation.fillMode = CAMediaTimingFillMode.backwards
         
-        self.loginInput.layer.add(fadeInAnimation, forKey: nil)
-        self.passwordInput.layer.add(fadeInAnimation, forKey: nil)
+        let scaleAnimation = CASpringAnimation(keyPath: "transform.scale")
+        scaleAnimation.fromValue = 0
+        scaleAnimation.toValue = 1
+        scaleAnimation.stiffness = 150
+        scaleAnimation.mass = 2
+        
+        let animationsGroup = CAAnimationGroup()
+        animationsGroup.duration = 1
+        animationsGroup.beginTime = CACurrentMediaTime() + 1
+        animationsGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        animationsGroup.fillMode = CAMediaTimingFillMode.backwards
+        animationsGroup.animations = [fadeInAnimation, scaleAnimation]
+        
+        self.loginInput.layer.add(animationsGroup, forKey: nil)
+        self.passwordInput.layer.add(animationsGroup, forKey: nil)
     }
     func animateAuthButton() {
         let animation = CASpringAnimation(keyPath: "transform.scale")
@@ -190,5 +265,8 @@ class LoginFormController: UIViewController {
     }
     @IBAction func backDooorButtonTapped(_ sender: UIButton) {
         backDoorKey = !backDoorKey
+    }
+    
+    @IBAction func backDoorTappedButton(_ sender: UIButton) {
     }
 }
