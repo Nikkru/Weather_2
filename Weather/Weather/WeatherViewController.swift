@@ -9,15 +9,16 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
+    let weatherService = WeatherApi()
+    
     @IBOutlet weak var weekDayPicker: UIView!
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        weatherService.loadWeatherData(city: "Moscow")
     }
- 
-
 }
 extension WeatherViewController: UICollectionViewDataSource {
     
