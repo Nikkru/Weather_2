@@ -10,6 +10,7 @@ import UIKit
 class WeatherViewController: UIViewController {
 
     let weatherService = WeatherApi()
+    var weathers = [Weather]()
     
     @IBOutlet weak var weekDayPicker: UIView!
     @IBOutlet weak var weatherCollectionView: UICollectionView!
@@ -17,7 +18,13 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        weatherService.loadWeatherData(city: "Moscow")
+        weatherService.loadWeatherData(city: "Moscow") { [weak self] weathers in
+            
+            // сохраняем полученные данные в массиве, чтобы коллекция могла получить к ним доступ
+                self?.weathers = weathers
+            // коллекция должна прочитать новые данные
+                self?.weatherCollectionView?.reloadData()
+            }
     }
 }
 extension WeatherViewController: UICollectionViewDataSource {
@@ -27,7 +34,7 @@ extension WeatherViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return weathers.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -36,8 +43,7 @@ extension WeatherViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell",
                                                       for: indexPath) as! WeatherCell
         // Configure the cell
-        cell.weather.text = "30"
-        cell.time.text = "30.08.2017 18:00"
+        cell.configure(whithWeather: weathers[indexPath.row])
         
         return cell
     }

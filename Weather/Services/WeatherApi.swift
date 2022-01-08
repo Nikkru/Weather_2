@@ -14,9 +14,10 @@ class WeatherApi {
     let baseUrl = "http://api.openweathermap.org"
     // ключ для доступа к сервису
     let apiKey = "92cabe9523da26194b02974bfcd50b7e"
+    let weatherApiKey = "92a1c5b7d7998aa81aef567739875fa3"
     
     // метод для загрузки данных, в качестве аргументов получает город
-    func loadWeatherData(city: String){
+    func loadWeatherData(city: String, completion: @escaping ([Weather]) -> Void) {
         
         // путь для получения погоды за 5 дней
         let path = "/data/2.5/forecast"
@@ -24,15 +25,18 @@ class WeatherApi {
         let parameters: Parameters = [
             "q": city,
             "units": "metric",
-            "appid": apiKey
+            "appid": weatherApiKey
         ]
         
         // составляем URL из базового адреса сервиса и конкретного пути к ресурсу
         let url = baseUrl+path
         
         // делаем запрос
-        AF.request(url, method: .get, parameters: parameters).responseJSON { repsonse in
-            print(repsonse.value)
+        AF.request(url, method: .get, parameters: parameters).responseData { response in
+            guard let data = response.value else { return }
+                     
+             let weather = try! JSONDecoder().decode(WeatherResponse.self, from: data).list
+            completion(weather)
         }
     }
 }
