@@ -29,6 +29,7 @@
 		2EA4A85B2735D88700BC4F21 /* MyCitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA4A85A2735D88700BC4F21 /* MyCitiesController.swift */; };
 		2EDD95EF27861D3F007632D9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2EDD95EE27861D3F007632D9 /* RealmSwift */; };
 		2EDECB81273C2FD400E003B3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDECB80273C2FD400E003B3 /* GradientView.swift */; };
+		2EE18D2D2789B3C500DBBDC5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE18D2C2789B3C500DBBDC5 /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		2EA4A8572735D86E00BC4F21 /* MyCitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesCell.swift; sourceTree = "<group>"; };
 		2EA4A85A2735D88700BC4F21 /* MyCitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesController.swift; sourceTree = "<group>"; };
 		2EDECB80273C2FD400E003B3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = ../LogIn/GradientView.swift; sourceTree = "<group>"; };
+		2EE18D2C2789B3C500DBBDC5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				2E8859272784B16900A3006B /* City.swift */,
+				2EE18D2C2789B3C500DBBDC5 /* Weather.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E6E3349278882E7005E08AF /* WeatherApi.swift in Sources */,
+				2EE18D2D2789B3C500DBBDC5 /* Weather.swift in Sources */,
 				2EA4A8582735D86E00BC4F21 /* MyCitiesCell.swift in Sources */,
 				2E85161B2767D8F900DD62F7 /* WeatherViewController.swift in Sources */,
 				2EA4A85B2735D88700BC4F21 /* MyCitiesController.swift in Sources */,

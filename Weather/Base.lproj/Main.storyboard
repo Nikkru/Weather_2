@@ -299,8 +299,8 @@
                                                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="aXf-Sx-9kb">
                                                     <rect key="frame" x="10" y="10" width="30" height="30"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PK-aH-c4i">
-                                                            <rect key="frame" x="-33" y="-33" width="96" height="96"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PK-aH-c4i">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="6PK-aH-c4i" secondAttribute="height" multiplier="1:1" id="4WR-Kg-MNV"/>
                                                             </constraints>
@@ -313,6 +313,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="aXf-Sx-9kb" secondAttribute="height" multiplier="1:1" id="boX-do-4Rx"/>
                                                         <constraint firstItem="6PK-aH-c4i" firstAttribute="centerY" secondItem="aXf-Sx-9kb" secondAttribute="centerY" id="otU-ee-LJx"/>
+                                                        <constraint firstItem="6PK-aH-c4i" firstAttribute="leading" secondItem="aXf-Sx-9kb" secondAttribute="leading" id="yNB-22-jH8"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5a-Dv-Mtq">
