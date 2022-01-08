@@ -49,6 +49,7 @@ extension WeatherViewController: UICollectionViewDataSource {
                                                       for: indexPath) as! WeatherCell
         // Configure the cell
         cell.configure(whithWeather: weathers[indexPath.row])
+        weatherCollectionView.reloadItems(at: [indexPath])
         
         return cell
     }
