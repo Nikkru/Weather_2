@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftyJSON
 
 class Weather: Object ,Decodable {
     
@@ -19,6 +20,22 @@ class Weather: Object ,Decodable {
     @objc dynamic var windSpeed = 0.0
     @objc dynamic var windDegrees = 0.0
     @objc dynamic var city = ""
+    
+    convenience init(json: JSON) {
+           self.init()
+           
+           self.date = json["dt"].doubleValue
+           self.temp = json["main"]["temp"].doubleValue
+           self.pressure = json["main"]["pressure"].doubleValue
+           self.humidity = json["main"]["humidity"].intValue
+           self.weatherName = json["weather"][0]["main"].stringValue
+           self.weatherIcon = json["weather"][0]["icon"].stringValue
+           self.windSpeed = json["wind"]["speed"].doubleValue
+           self.windDegrees = json["wind"]["deg"].doubleValue
+           self.city = city
+           
+       }
+
     
     enum CodingKeys: String, CodingKey {
         case date = "dt"

@@ -18,20 +18,26 @@ class WeatherApi {
     let weatherApiKey = "92a1c5b7d7998aa81aef567739875fa3"
     var weathers = [Weather]()
     
-    //сохранение погодных данных в Realm
-    func saveWeatherData(_ weathers: [Weather]) {
+    // сохранение погодных данных в realm
+    func saveWeatherData(_ weathers: [Weather], city: String) {
         // обработка исключений при работе с хранилищем
         do {
             // получаем доступ к хранилищу
             let realm = try Realm()
             
+            // все старые погодные данные для текущего города
+            let oldWeathers = realm.objects(Weather.self).filter("city == %@", city)
+            
             // начинаем изменять хранилище
             realm.beginWrite()
+            
+            // удаляем старые данные
+            realm.delete(oldWeathers)
             
             // кладем все объекты класса погоды в хранилище
             realm.add(weathers)
             
-            // завершаем изменения хранилища
+            // завершаем изменение хранилища
             try realm.commitWrite()
         } catch {
             // если произошла ошибка, выводим ее в консоль
@@ -39,8 +45,9 @@ class WeatherApi {
         }
     }
     
+    
     // метод для загрузки данных, в качестве аргументов получает город
-    func loadWeatherData(city: String, completion: @escaping ([Weather]) -> Void) {
+    func loadWeatherData(city: String, completion: @escaping () -> Void) {
         
         // путь для получения погоды за 5 дней
         let path = "/data/2.5/forecast"
@@ -59,10 +66,11 @@ class WeatherApi {
             guard let data = response.value else { return }
             
             let weather = try! JSONDecoder().decode(WeatherResponse.self, from: data).list
+            weather.forEach { $0.city = city }
             
-            self.saveWeatherData(weather)
+            self.saveWeatherData(weather, city: city)
             
-            completion(weather)
+            completion()
         }
     }
 }

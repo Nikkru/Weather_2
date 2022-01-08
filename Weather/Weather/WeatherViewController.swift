@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class WeatherViewController: UIViewController {
 
@@ -18,12 +19,16 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        weatherService.loadWeatherData(city: "Moscow") { [weak self] weathers in
+        weatherService.loadWeatherData(city: "Moscow") { [weak self] in
             
-            // сохраняем полученные данные в массиве, чтобы коллекция могла получить к ним доступ
-                self?.weathers = weathers
-            // коллекция должна прочитать новые данные
-                self?.weatherCollectionView?.reloadData()
+//            // сохраняем полученные данные в массиве, чтобы коллекция могла получить к ним доступ
+//                self?.weathers = weathers
+//            // коллекция должна прочитать новые данные
+//                self?.weatherCollectionView?.reloadData()
+            
+            self?.loadData()
+            
+            self?.weatherCollectionView?.reloadData()
             }
     }
 }
@@ -48,7 +53,20 @@ extension WeatherViewController: UICollectionViewDataSource {
         return cell
     }
     
-    
+    func loadData() {
+            do {
+                let realm = try Realm()
+                
+                let weathers = realm.objects(Weather.self).filter("city == %@", "Moscow")
+                
+                self.weathers = Array(weathers)
+                
+            } catch {
+    // если произошла ошибка, выводим ее в консоль
+                print(error)
+            }
+        }
+
 }
 
 extension WeatherViewController: UICollectionViewDelegate {
