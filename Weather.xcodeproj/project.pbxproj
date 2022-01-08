@@ -30,6 +30,8 @@
 		2EDD95EF27861D3F007632D9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2EDD95EE27861D3F007632D9 /* RealmSwift */; };
 		2EDECB81273C2FD400E003B3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDECB80273C2FD400E003B3 /* GradientView.swift */; };
 		2EE18D2D2789B3C500DBBDC5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE18D2C2789B3C500DBBDC5 /* Weather.swift */; };
+		2EE18D372789C89700DBBDC5 /* WeatherDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE18D362789C89700DBBDC5 /* WeatherDataBase.swift */; };
+		2EE18D3B2789DC5D00DBBDC5 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 2EE18D3A2789DC5D00DBBDC5 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,7 @@
 		2EA4A85A2735D88700BC4F21 /* MyCitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesController.swift; sourceTree = "<group>"; };
 		2EDECB80273C2FD400E003B3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = ../LogIn/GradientView.swift; sourceTree = "<group>"; };
 		2EE18D2C2789B3C500DBBDC5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		2EE18D362789C89700DBBDC5 /* WeatherDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,7 @@
 			files = (
 				2E6E334E278884FC005E08AF /* Alamofire in Frameworks */,
 				2EDD95EF27861D3F007632D9 /* RealmSwift in Frameworks */,
+				2EE18D3B2789DC5D00DBBDC5 /* SwiftyJSON in Frameworks */,
 				2E7A5AD32781E32A000817F0 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +136,7 @@
 			children = (
 				2EDECB80273C2FD400E003B3 /* GradientView.swift */,
 				2E6E3348278882E7005E08AF /* WeatherApi.swift */,
+				2EE18D362789C89700DBBDC5 /* WeatherDataBase.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				2E7A5AD22781E32A000817F0 /* SDWebImage */,
 				2EDD95EE27861D3F007632D9 /* RealmSwift */,
 				2E6E334D278884FC005E08AF /* Alamofire */,
+				2EE18D3A2789DC5D00DBBDC5 /* SwiftyJSON */,
 			);
 			productName = Weather;
 			productReference = 2E4EF8AB2729E49A0085E459 /* Weather.app */;
@@ -231,6 +237,7 @@
 				2E7A5AD12781E32A000817F0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				2EDD95ED27861D3F007632D9 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				2E6E334C278884FC005E08AF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				2EE18D392789DC5D00DBBDC5 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 2E4EF8AC2729E49A0085E459 /* Products */;
 			projectDirPath = "";
@@ -276,6 +283,7 @@
 				2E78193F2735CCF70021BA1C /* AllCitiesCell.swift in Sources */,
 				2E4EF8B12729E49A0085E459 /* SceneDelegate.swift in Sources */,
 				2E7A5ADA278218C1000817F0 /* ExtensionsUIImage.swift in Sources */,
+				2EE18D372789C89700DBBDC5 /* WeatherDataBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +511,14 @@
 				minimumVersion = 10.20.2;
 			};
 		};
+		2EE18D392789DC5D00DBBDC5 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -520,6 +536,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2EDD95ED27861D3F007632D9 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		2EE18D3A2789DC5D00DBBDC5 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EE18D392789DC5D00DBBDC5 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -5,8 +5,9 @@
 //  Created by Nikolai Krusser on 07.01.2022.
 //
 
-import Foundation
+import UIKit
 import Alamofire
+import RealmSwift
 
 class WeatherApi {
     
@@ -15,6 +16,28 @@ class WeatherApi {
     // ключ для доступа к сервису
     let apiKey = "92cabe9523da26194b02974bfcd50b7e"
     let weatherApiKey = "92a1c5b7d7998aa81aef567739875fa3"
+    var weathers = [Weather]()
+    
+    //сохранение погодных данных в Realm
+    func saveWeatherData(_ weathers: [Weather]) {
+        // обработка исключений при работе с хранилищем
+        do {
+            // получаем доступ к хранилищу
+            let realm = try Realm()
+            
+            // начинаем изменять хранилище
+            realm.beginWrite()
+            
+            // кладем все объекты класса погоды в хранилище
+            realm.add(weathers)
+            
+            // завершаем изменения хранилища
+            try realm.commitWrite()
+        } catch {
+            // если произошла ошибка, выводим ее в консоль
+            print(error)
+        }
+    }
     
     // метод для загрузки данных, в качестве аргументов получает город
     func loadWeatherData(city: String, completion: @escaping ([Weather]) -> Void) {
@@ -34,8 +57,11 @@ class WeatherApi {
         // делаем запрос
         AF.request(url, method: .get, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
-                     
-             let weather = try! JSONDecoder().decode(WeatherResponse.self, from: data).list
+            
+            let weather = try! JSONDecoder().decode(WeatherResponse.self, from: data).list
+            
+            self.saveWeatherData(weather)
+            
             completion(weather)
         }
     }

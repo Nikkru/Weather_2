@@ -44,7 +44,7 @@ class Weather: Object ,Decodable {
     }
     
     convenience required init(from decoder: Decoder) throws {
-            self.init()
+        self.init()
         
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.date = try values.decode(Double.self, forKey: .date)
@@ -63,6 +63,7 @@ class Weather: Object ,Decodable {
         self.windSpeed = try windValues.decode(Double.self, forKey: .speed)
         self.windDegrees = try windValues.decode(Double.self, forKey: .deg)
     }
+    
 }
 
 class WeatherResponse: Decodable {
