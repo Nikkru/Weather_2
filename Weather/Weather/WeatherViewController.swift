@@ -22,6 +22,8 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = cityName
         guard let name = cityName else {
             return cityName = "Moscow"
         }

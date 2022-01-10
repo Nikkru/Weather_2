@@ -269,7 +269,7 @@
             </objects>
             <point key="canvasLocation" x="1048" y="846"/>
         </scene>
-        <!--Weather View Controller-->
+        <!--Title-->
         <scene sceneID="rqj-6c-2Er">
             <objects>
                 <viewController id="C1V-BS-ZuW" customClass="WeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
@@ -379,7 +379,7 @@
                             <constraint firstItem="20a-R4-8ar" firstAttribute="top" secondItem="oge-t4-bO9" secondAttribute="bottom" id="rXh-O0-3Gd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6CN-qz-Vme"/>
+                    <navigationItem key="navigationItem" title="Title" id="38s-6w-aEK"/>
                     <connections>
                         <outlet property="weatherCollectionView" destination="20a-R4-8ar" id="RDy-kK-CGa"/>
                         <outlet property="weekDayPicker" destination="oge-t4-bO9" id="kUK-et-1cT"/>
