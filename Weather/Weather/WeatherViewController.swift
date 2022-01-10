@@ -10,6 +10,10 @@ import RealmSwift
 
 class WeatherViewController: UIViewController {
 
+     var cityName: String?
+    var citie: City?
+    var cities = [City]()
+    
     let weatherService = WeatherApi()
     var weathers = [Weather]()
     
@@ -18,8 +22,10 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        weatherService.loadWeatherData(city: "Moscow") { [weak self] in
+        guard let name = cityName else {
+            return cityName = "Moscow"
+        }
+        weatherService.loadWeatherData(city: name) { [weak self] in
             
 //            // сохраняем полученные данные в массиве, чтобы коллекция могла получить к ним доступ
 //                self?.weathers = weathers
@@ -58,7 +64,7 @@ extension WeatherViewController: UICollectionViewDataSource {
             do {
                 let realm = try Realm()
                 
-                let weathers = realm.objects(Weather.self).filter("city == %@", "Moscow")
+                let weathers = realm.objects(Weather.self).filter("city == %@", cityName!)
                 
                 self.weathers = Array(weathers)
                 

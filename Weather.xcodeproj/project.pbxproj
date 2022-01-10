@@ -30,7 +30,6 @@
 		2EDD95EF27861D3F007632D9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2EDD95EE27861D3F007632D9 /* RealmSwift */; };
 		2EDECB81273C2FD400E003B3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDECB80273C2FD400E003B3 /* GradientView.swift */; };
 		2EE18D2D2789B3C500DBBDC5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE18D2C2789B3C500DBBDC5 /* Weather.swift */; };
-		2EE18D372789C89700DBBDC5 /* WeatherDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE18D362789C89700DBBDC5 /* WeatherDataBase.swift */; };
 		2EE18D3B2789DC5D00DBBDC5 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 2EE18D3A2789DC5D00DBBDC5 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +56,6 @@
 		2EA4A85A2735D88700BC4F21 /* MyCitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesController.swift; sourceTree = "<group>"; };
 		2EDECB80273C2FD400E003B3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = ../LogIn/GradientView.swift; sourceTree = "<group>"; };
 		2EE18D2C2789B3C500DBBDC5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		2EE18D362789C89700DBBDC5 /* WeatherDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +134,6 @@
 			children = (
 				2EDECB80273C2FD400E003B3 /* GradientView.swift */,
 				2E6E3348278882E7005E08AF /* WeatherApi.swift */,
-				2EE18D362789C89700DBBDC5 /* WeatherDataBase.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -283,7 +280,6 @@
 				2E78193F2735CCF70021BA1C /* AllCitiesCell.swift in Sources */,
 				2E4EF8B12729E49A0085E459 /* SceneDelegate.swift in Sources */,
 				2E7A5ADA278218C1000817F0 /* ExtensionsUIImage.swift in Sources */,
-				2EE18D372789C89700DBBDC5 /* WeatherDataBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

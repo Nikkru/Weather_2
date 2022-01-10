@@ -86,3 +86,13 @@ class Weather: Object ,Decodable {
 class WeatherResponse: Decodable {
     let list: [Weather]
 }
+
+class CityDAO: Object {
+    
+    @objc dynamic var name: String? = nil
+    let weathers = List<Weather>()
+    
+    override static func primaryKey() -> String? {
+        return "name"
+    }
+}

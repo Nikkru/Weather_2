@@ -446,7 +446,7 @@
                                 <connections>
                                     <outlet property="cityName" destination="ALK-oG-hy3" id="8E0-Fd-Yoh"/>
                                     <outlet property="emblemCityView" destination="eQx-j9-qhz" id="6l0-vu-xAF"/>
-                                    <segue destination="C1V-BS-ZuW" kind="show" id="nTb-ak-fjI"/>
+                                    <segue destination="C1V-BS-ZuW" kind="show" identifier="showCity" id="nTb-ak-fjI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
