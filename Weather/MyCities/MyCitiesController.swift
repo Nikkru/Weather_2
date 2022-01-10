@@ -39,13 +39,13 @@ class MyCitiesController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCitiesCell", for: indexPath) as! MyCitiesCell
         if let c = cityes {
         let city = c[indexPath.row]
-            if city.name != nil {
-                cell.cityName.text = city.name } else {
-                    let city = cities[indexPath.row]
-                    cell.cityName.text = city.title
-                    cell.emblemCityView.image = city.emblemImage
-                }
+            if city.name != "" {
+                cell.cityName.text = city.name }
 //        cell.emblemCityView.image = city.emblemImage
+        } else {
+            let city = cities[indexPath.row]
+            cell.cityName.text = city.title
+            cell.emblemCityView.image = city.emblemImage
         }
         return cell
     }
